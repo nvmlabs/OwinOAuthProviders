@@ -36,6 +36,7 @@ namespace Owin.Security.Providers.Salesforce
             NickName = TryGetValue(user, "nick_name");
             DisplayName = TryGetValue(user, "display_name");
             Email = TryGetValue(user, "email");
+            EmailVerified = TryGetValue(user, "email_verified");
             FirstName = TryGetValue(user, "first_name");
             LastName = TryGetValue(user, "last_name");
             TimeZone = TryGetValue(user, "timezone");
@@ -101,6 +102,11 @@ namespace Owin.Security.Providers.Salesforce
         /// Gets the Salesforce User Email
         /// </summary>
         public string Email { get; private set; }
+
+        /// <summary>
+        /// Gets if the Salesforce Users Email has been verified
+        /// </summary>
+        public string EmailVerified { get; private set; }
 
         /// <summary>
         /// Gets the user's First Name

@@ -117,6 +117,11 @@ namespace Owin.Security.Providers.Salesforce
                     context.Identity.AddClaim(new Claim(ClaimTypes.Email, context.Email, XmlSchemaString, Options.AuthenticationType));
                 }
 
+                if (!string.IsNullOrEmpty(context.EmailVerified))
+                {
+                    context.Identity.AddClaim(new Claim("urn:Salesforce:email_verified", context.Email, XmlSchemaString, Options.AuthenticationType));
+                }
+
                 if (!string.IsNullOrEmpty(context.FirstName))
                 {
                     context.Identity.AddClaim(new Claim(ClaimTypes.GivenName, context.FirstName, XmlSchemaString, Options.AuthenticationType));
